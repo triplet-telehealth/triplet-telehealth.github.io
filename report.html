@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TripleT Telehealth</title>
+<meta name = "description" content ="TripleT Telehealth is a Junior Academy project for the New York Academy of Sciences.">
+<!-- Load external icons and fonts-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFW50bf8pkAp6a.woff2",rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* General Fonts and Theme */
+  html{
+    font-family: 'Open Sans', Helvetica, sans-serif;
+  }
+
+/* Special formatting for report button */
+  a.report {
+    width: 150px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    text-align: center;
+  }
+
+  body {
+    margin: 0;
+  }
+  
+  h1{
+    margin-top: 10px;
+    margin-bottom:10px;
+  }
+
+  #page_banner {
+    background-color: rgb(10, 103, 243);
+    color: white;
+    width: 100%;
+    left: 0;
+    right: 0;
+
+    overflow: hidden;
+    background-size: 100%;
+  }
+
+  #big-foot{
+    background-color:grey;
+    width:100%;
+    overflow: hidden;
+    width:100%;
+    margin-top: 10px;
+    color: white;
+  }
+
+  #content{
+    margin-left: 1%;
+  }
+
+  #main_content{
+    margin-left: 10%;
+    margin-right:10%;
+  }
+
+  #main_content a {
+    background-color:rgb(10, 103, 243);
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    display:block;
+    text-align:center
+
+  }
+
+/* Add a black background color to the top navigation */
+  .topnav {
+    background-color: #333;
+    overflow: hidden;
+  }
+
+
+/* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+/* Change the color of links on hover */
+  .topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  }
+
+/* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-color: rgb(10, 103, 243);
+    color: white;
+  }
+
+/* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display:block;
+      text-align: left;
+    }
+  }
+
+</style>
+</head>
+<!-- Begin Inspectlet Asynchronous Code -->
+<script type="text/javascript">
+  (function() {
+  window.__insp = window.__insp || [];
+  __insp.push(['wid', 1641229683]);
+  var ldinsp = function(){
+  if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=1641229683&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+  setTimeout(ldinsp, 0);
+  })();
+  </script>
+<!-- End Inspectlet Asynchronous Code -->
+
+<body>
+
+<!-- Navigation Bar -->
+<div class="topnav" id="myTopnav">
+  <a href ="/index.html" class = "logo">TripleT Telehealth</a> <!--Note to self: add CSS for logo class-->
+  <div style ='float:right'> 
+    <a href="/index.html" class="active">Tracing</a>
+    <a href="/communicate.html">Communicate</a>
+    <a href="/learn.html">Learn</a>
+    <a href="/logistics.html">Logistics</a>
+    <a href="javascript:void(0);" class="icon" onclick="navExpand()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<script>
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+  function navExpand() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+}
+</script>
+<!-- Navigation bar stuff ends-->
+
+<div id="main_content"> <!-- Content begins again -->
+<h1> Cholera Case Reporting </h1>
+<p id="date"></p>
+<script type="text/javascript">
+    function display_clock(){
+        var d = new Date();
+        document.getElementById("date").innerHTML = d;
+        setTimeout(display_clock, 1000);
+    }
+    display_clock();
+</script>
+
+<iframe 
+    src="https://docs.google.com/forms/d/e/1FAIpQLSebFHVLnUJFimKpvVdE-WSVVjnJDRWN8SKkfuYXbskaJfWfvQ/viewform?embedded=true" 
+    width=100% height="525" frameborder="0" marginheight="0" marginwidth="0">
+  Loading…
+</iframe>
+
+</div>
+
+<div id="big-foot">
+  <div id="content">
+    <p>Made for the <i>New York Academy of Sciences</i> Telemedicine Challenge.</p>
+  </div>  
+</div>
+</body>
+</html>
