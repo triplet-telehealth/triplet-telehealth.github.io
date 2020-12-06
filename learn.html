@@ -11,6 +11,7 @@
 /* General Fonts and Theme */
   html{
     font-family: 'Open Sans', Helvetica, sans-serif;
+    height: 100%;
   }
   
   a {
@@ -19,6 +20,7 @@
 
   body {
     margin: 0;
+    height: 100%;
   }
   
   h1{
@@ -53,6 +55,7 @@
   #main_content{
     margin-left: 10%;
     margin-right:10%;
+    height: 100%;
   }
 
   #main_content a {
@@ -199,40 +202,20 @@
 <h1> The Cholera Guide </h1>
 
 <!-- Book Begins -->
+
+<!-- Script to toggle info boxes -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-
-$(document).ready(function(){
-  $("[id^=btn]").click(function(){
-    $("[id^=info]").hide();
-    $("[id^=btn]").css("background-color","rgb(228, 228, 228");
-    $("[id^=btn]").css("color","black");
+function toggleDisplay(btnid) {
+  $(document).ready(function(){
+      $("[id^=info]").hide();
+      $("[id^=btn]").css("background-color","rgb(228, 228, 228");
+      $("[id^=btn]").css("color","black");
+      $('#info-'+btnid).show();
+      $('#btn-'+btnid).css("background-color","rgb(0, 102, 255)");
+      $('#btn-'+btnid).css("color","white");
   });
-
-  $("#btn-dem").click(function(){
-    $('#info-dem').show();
-    $('#btn-dem').css("background-color","rgb(0, 102, 255)");
-    $('#btn-dem').css("color","white");
-  });
-  $("#btn-spread").click(function(){
-    $('#info-spread').show();
-    $('#btn-spread').css("background-color","rgb(0, 102, 255)");
-    $('#btn-spread').css("color","white");
-  });
-
-  $("#btn-dl").click(function(){
-    $('#info-dl').show();
-    $('#btn-dl').css("background-color","rgb(0, 102, 255)");
-    $('#btn-dl').css("color","white");
-  });
-  $("#btn-se").click(function(){
-    $('#info-se').show();
-    $('#btn-se').css("background-color","rgb(0, 102, 255)");
-    $('#btn-se').css("color","white");
-  });
-
-
-});
+} 
 </script>
 
 <div id ="book_wrapper">
@@ -240,14 +223,14 @@ $(document).ready(function(){
     
     <h>Current Situation</h>
     <!-- List alphabetically -->
-    <button id ="btn-dem">Demographics</button>
-    <button id ="btn-spread">Spread</button>
+    <button id ="btn-dem" onclick="toggleDisplay('dem')">Demographics</button>
+    <button id ="btn-spread" onclick="toggleDisplay('spread')">Spread</button>
     <p></p>
 
     <h> Symptoms </h>
     <!-- List alphabetically -->
-    <button id ="btn-dl">Dry Lips</button>
-    <button id ="btn-se">Sunken Eyes</button>
+    <button id ="btn-dl" onclick="toggleDisplay('dl')">Dry Lips</button>
+    <button id ="btn-se" onclick="toggleDisplay('se')">Sunken Eyes</button>
     
   </div>
   <div id ="book_content">
