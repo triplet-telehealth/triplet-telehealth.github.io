@@ -6,27 +6,35 @@
 <!-- Load external icons and fonts-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFW50bf8pkAp6a.woff2",rel="stylesheet">
-<script type="text/javascript" src="translate.js"></script>
 <link rel="stylesheet" href="nav-bar.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="translate.js"></script>
 <style>
 /* General Fonts and Theme */
   html{
     font-family: 'Open Sans', Helvetica, sans-serif;
-    height: 100%;
+  }
+
+  a {
+  color: white;
+  }
+  
+/* Special formatting for report button */
+  a.report {
+    width: 150px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    text-align: center;
   }
 
   body {
     margin: 0;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
   }
   
   h1{
-    margin-top: 10px;
-    margin-bottom:10px;
-  }
-
-  h2{
     margin-top: 10px;
     margin-bottom:10px;
   }
@@ -42,42 +50,46 @@
   }
 
   #big-foot{
+    margin-top: 100px;
     background-color:grey;
     width:100%;
     overflow: hidden;
-    margin-top: 10px;
     color: white;
     position: fixed;
     bottom: 0;
   }
 
+  #content{
+    margin-left: 1%;
+  }
+
   #main_content{
     margin-left: 10%;
     margin-right:10%;
-    height: 100%;
-    margin-bottom: 100px;
   }
 
   #main_content a {
+    background-color:rgb(10, 103, 243);
     padding: 5px;
     color: white;
     text-decoration: none;
-    display:inline;
-    text-align:left;
+    display:block;
+    text-align:center
+
   }
 
 </style>
 </head>
 <!-- Begin Inspectlet Asynchronous Code -->
 <script type="text/javascript">
-    (function() {
-    window.__insp = window.__insp || [];
-    __insp.push(['wid', 1641229683]);
-    var ldinsp = function(){
-    if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=1641229683&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
-    setTimeout(ldinsp, 0);
-    })();
-    </script>
+  (function() {
+  window.__insp = window.__insp || [];
+  __insp.push(['wid', 1641229683]);
+  var ldinsp = function(){
+  if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=1641229683&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+  setTimeout(ldinsp, 0);
+  })();
+  </script>
 <!-- End Inspectlet Asynchronous Code -->
 
 <body>
@@ -86,8 +98,8 @@
 <div class="topnav" id="myTopnav">
   <a href ="/index.html" class = "logo">TripleT Telehealth</a> <!--Note to self: add CSS for logo class-->
   <div style ='float:right'> 
-    <a href="/index.html">Tracing</a>
-    <a href="/communicate.html" class="active">Communicate</a>
+    <a href="/index.html" class="active">Tracing</a>
+    <a href="/communicate.html">Communicate</a>
     <a href="/learn.html">Learn</a>
     <a href="/profile-protected.html">Login</a>
     <a href="javascript:void(0);" class="icon" onclick="navExpand()">
@@ -109,38 +121,24 @@
 </script>
 <!-- Navigation bar stuff ends-->
 
-<div id ="page_banner">
-  <div id="content">
-    <h1 style="margin-left:1%"> Communicate with professionals </h1>
-  </div>
-</div> 
-
 <div id="main_content"> <!-- Content begins again -->
+<h1> Cholera Case Reporting </h1>
+<p id="date"></p>
+<script type="text/javascript">
+    function display_clock(){
+        var d = new Date();
+        document.getElementById("date").innerHTML = d;
+        setTimeout(display_clock, 1000);
+    }
+    display_clock();
+</script>
 
-  <p>Select who you are: 
-    <p>
-    <a href = #public style="background-color:rgb(21, 59, 182)">I'm a member of the public</a> OR 
-    <a href = #pro style = "background-color:rgb(243, 123, 10)">I'm a CMA or Health Professional</a>
-    <p>
-  </p>
+<iframe 
+    src="https://docs.google.com/forms/d/e/1FAIpQLSebFHVLnUJFimKpvVdE-WSVVjnJDRWN8SKkfuYXbskaJfWfvQ/viewform?embedded=true" 
+    width=100% height="525" frameborder="0" marginheight="0" marginwidth="0">
+  Loading…
+</iframe>
 
-
-  <div id = 'public'>
-    <h2>For The Public: Book or Contact A Health Professional</h2>
-    <p>Have questions about cholera? Send a message to your local Community Medical Assistant or health professional.</p>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd0919p7lN2KGpyzA7N7txXY5wxSlwlFq1b6Mb2rY3ESpdlJQ/viewform?embedded=true" 
-    width=100% height="500px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-  </div>
-
-  <div id = 'pro'>
-    <h2>For Professionals</h2>
-    <p>Log in to address questions in your governorate, or communicate with other professionals.</p>
-    <a href = "/pro_profile.html" style ="background-color:rgb(0, 226, 158); margin-left: 0px; font-size:20px;">Login</a>  
-    <p>Don't have an account? <button onclick ="alert('Coming Soon!')">Signing up</a></button> to Triplet Telehealth allows you to reach more patients and network with other professionals in your area!</p>
-
-  </div>
-
-  
 </div>
 </body>
 

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TripleT Telehealth</title>
+<meta name = "description" content ="TripleT Telehealth is a Junior Academy project for the New York Academy of Sciences.">
+<!-- Load external icons and fonts-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFW50bf8pkAp6a.woff2",rel="stylesheet">
+<link rel="stylesheet" href="nav-bar.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="translate.js"></script>
+<style>
+/* General Fonts and Theme */
+  html{
+    font-family: 'Open Sans', Helvetica, sans-serif;
+  }
+  
+  a {
+  color: white;
+  }
+
+  body {
+    margin: 0;
+    padding-bottom: 100px;
+  }
+  
+  h1{
+    margin-top: 10px;
+    margin-bottom:10px;
+  }
+
+  #page_banner {
+    background-color: rgb(10, 103, 243);
+    color: white;
+    width: 100%;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background-size: 100%;
+  }
+
+  #big-foot{
+    background-color:grey;
+    width:100%;
+    overflow: hidden;
+    margin-top: 10px;
+    color: white;
+    position: fixed;
+    bottom: 0;
+  }
+
+  #big-foot p{
+    margin-left: 1%;
+  }
+
+  #main_content{
+    margin-left: 10%;
+    margin-right:10%;
+    height: 100%;
+    margin-bottom: 100px;
+  }
+
+.options a {
+    background-color:rgb(243, 118, 1);
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    text-align:center;
+    font-size: 13px;
+  }
+  
+  .options button {
+    background-color:rgb(10, 103, 243);
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    text-align:center;
+    border: none;
+    font-size: 15px;
+  }
+
+/* Message Box*/
+.message {
+    background-color: rgb(0, 153, 255);
+    color: white;
+    border-radius:10px;
+    padding: 10px;
+    padding-left: 10px;
+    width: 70%;
+    padding-bottom: 1px;
+}
+
+.options {
+    background-color: gray;
+    overflow: hidden;
+    margin:0;
+    width: 70%;
+    color: white;
+    padding: 10px;
+    border-radius:10px;
+}
+
+</style>
+</head>
+<!-- Begin Inspectlet Asynchronous Code -->
+<script type="text/javascript">
+    (function() {
+    window.__insp = window.__insp || [];
+    __insp.push(['wid', 1641229683]);
+    var ldinsp = function(){
+    if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=1641229683&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+    setTimeout(ldinsp, 0);
+    })();
+    </script>
+<!-- End Inspectlet Asynchronous Code -->
+<body>
+
+<!-- Navigation Bar -->
+<div class="topnav" id="myTopnav">
+  <a href ="/index.html" class = "logo">TripleT Telehealth</a> <!--Note to self: add CSS for logo class-->
+  <div style ='float:right'> 
+    <a href="/index.html">Tracing</a>
+    <a href="/communicate.html">Communicate</a>
+    <a href="/learn.html">Learn</a>
+    <a href="/profile-protected.html" class="active">Login</a>
+    <a href="javascript:void(0);" class="icon" onclick="navExpand()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<script>
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+  function navExpand() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+}
+</script>
+<!-- Navigation bar stuff ends-->
+
+<div id ="page_banner">
+    <h1 style="margin-left:1%"> Dashboard </h1>
+</div> 
+<div id="main_content"> <!-- Content begins again -->
+<h1>Governorate: Dhamar</h1>
+
+<h2>Messages</h2>
+
+<!-- Script for replying to messages and scheduling calls-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    function replyMessage(name,ref){
+      alert("This feature is just a demo. What you type will not be saved.");
+      reply = prompt('Replying to '+name);
+        
+    }
+
+    function schedule(name){
+            $(document).ready(function(){
+            $('#contact-'+name).show();
+         }); 
+    }
+</script>
+
+<div class ="message" id ="msg1">
+<i>Ali Shaku (ID: 4010) at 11AM, December 7 (2020)</i>
+<p>My 5-year old son has had diarrhea for the past 3 days. He also looks pale and his eyes have sunken a bit. His mouth and lips are dry. I've attached a picture of his diarrhea. What should I do?</p>
+<img src = "https://www.researchgate.net/profile/Ana_Weil/publication/51898494/figure/fig1/AS:484201817481216@1492454117646/Rice-water-stool-produced-by-a-cholera-patient.png" width = 30%></img>
+</div>
+<div class ="options">
+    <button onclick="replyMessage('Ali',1)"><i class="fa fa-reply" aria-hidden="true"></i> Reply</button>
+    <a href="/report.html" target=_blank>Report Case</a> <button onclick="schedule('Ali')">Schedule Call</button>
+    <p style="font-size:10px">Tip: Visit the "Learn" section to learn more about any symptoms you might be seeing.</p>
+</div>
+<div id ="contact-Ali" style="display:none">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfj0lKxm11DI6VmsVFgErqN0KB-Go9utq6uCBGus_fq7c5cw/viewform?embedded=true" 
+    width="80%" height="880" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+
+<h2>Other professionals</h2>
+
+<div class ="message">
+    <i>Nurse Ahmad (ID 5230) at 5PM, December 3 (2020)</i>
+    <p>A patient just came in with some really bad diarrhea. I'd like a consult.</p>
+    </div>
+    <div class ="options">
+        <button onclick="replyMessage('Ahmad')"><i class="fa fa-reply" aria-hidden="true"></i> Reply</button>
+        <button onclick="alert('No time for chit-chat right now.')">Schedule Call</button>
+    </div>
+
+    <div id ="contact-Ahmad" style="display:none">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfj0lKxm11DI6VmsVFgErqN0KB-Go9utq6uCBGus_fq7c5cw/viewform?embedded=true" 
+            width="80%" height="880" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+
+</div>
+
+
+<div id="big-foot">
+    <div id="google_translate_element" style ="float:left"></div> 
+    <p style = "float:right;margin-right: 10px">View the <a href ="https://github.com/triplet-telehealth/triplet-telehealth.github.io" target="_blank" rel="noopener noreferrer" style="color:white">source code</a>. </p>
+</div>
+
+
+</body>
+</html>
