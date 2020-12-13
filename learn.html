@@ -6,7 +6,9 @@
 <!-- Load external icons and fonts-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFW50bf8pkAp6a.woff2",rel="stylesheet">
+<link rel="stylesheet" href="nav-bar.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="translate.js"></script>
 <style>
 /* General Fonts and Theme */
   html{
@@ -19,11 +21,13 @@
 
   body {
     margin: 0;
+    padding-bottom: 100px;
   }
   
   h1{
     margin-top: 10px;
     margin-bottom:10px;
+    margin-left: 1%;
   }
 
   #page_banner {
@@ -32,7 +36,6 @@
     width: 100%;
     left: 0;
     right: 0;
-
     overflow: hidden;
     background-size: 100%;
   }
@@ -41,34 +44,34 @@
     background-color:grey;
     width:100%;
     overflow: hidden;
-    width:100%;
     margin-top: 10px;
     color: white;
+    position: fixed;
+    bottom: 0;
   }
 
-  #content{
+  #big-foot p{
     margin-left: 1%;
   }
 
   #main_content{
     margin-left: 10%;
     margin-right:10%;
+    height: 100%;
+    margin-bottom: 100px;
   }
 
-  #main_content a {
-    background-color:rgb(10, 103, 243);
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    display:block;
-    text-align:center
-
-  }
 
 /* Book */
 #book_wrapper {
-  display: flex;
+  overflow: hidden;
 }
+
+.bookmarks {
+  float:left;
+  margin-right: 30px;
+}
+
 
 .bookmarks button{
   display:block;
@@ -87,66 +90,16 @@
 
 #book_content {
   margin-left: 3%;
+  overflow: hidden;
 }
 
-/* Add a black background color to the top navigation */
-  .topnav {
-    background-color: #333;
-    overflow: hidden;
-  }
-
-
-/* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-
-/* Change the color of links on hover */
-  .topnav a:hover {
-  background-color: #ddd;
+#book_content a{
   color: black;
-  }
+  vertical-align: super;
+  font-size: smaller;
+}
 
-/* Add an active class to highlight the current page */
-  .topnav a.active {
-    background-color: rgb(10, 103, 243);
-    color: white;
-  }
-
-/* Hide the link that should open and close the topnav on small screens */
-  .topnav .icon {
-    display: none;
-  }
-
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-  @media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-  }
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-  @media screen and (max-width: 600px) {
-    .topnav.responsive {position: relative;}
-    .topnav.responsive a.icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .topnav.responsive a {
-      float: none;
-      display:block;
-      text-align: left;
-    }
-  }
+ul li { padding: 5px 0px; }
 
 </style>
 </head>
@@ -170,7 +123,7 @@
     <a href="/index.html">Tracing</a>
     <a href="/communicate.html">Communicate</a>
     <a href="/learn.html" class="active">Learn</a>
-    <a href="/logistics.html">Logistics</a>
+    <a href="/profile-protected.html">Login</a>
     <a href="javascript:void(0);" class="icon" onclick="navExpand()">
       <i class="fa fa-bars"></i>
     </a>
@@ -191,81 +144,189 @@
 <!-- Navigation bar stuff ends-->
 
 <div id ="page_banner">
-  <div id="content">
     <h1> Learn about cholera </h1>
-  </div>
 </div> 
 <div id="main_content"> <!-- Content begins again -->
 <h1> The Cholera Guide </h1>
 
 <!-- Book Begins -->
+
+<!-- Script to toggle info boxes -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-
-$(document).ready(function(){
-  $("[id^=btn]").click(function(){
-    $("[id^=info]").hide();
-    $("[id^=btn]").css("background-color","rgb(228, 228, 228");
-    $("[id^=btn]").css("color","black");
+function toggleDisplay(btnid) {
+  $(document).ready(function(){
+      $("[id^=info]").hide();
+      $("[id^=btn]").css("background-color","rgb(228, 228, 228");
+      $("[id^=btn]").css("color","black");
+      $('#info-'+btnid).show();
+      $('#btn-'+btnid).css("background-color","rgb(0, 102, 255)");
+      $('#btn-'+btnid).css("color","white");
   });
-
-  $("#btn-dem").click(function(){
-    $('#info-dem').show();
-    $('#btn-dem').css("background-color","rgb(0, 102, 255)");
-    $('#btn-dem').css("color","white");
-  });
-  $("#btn-spread").click(function(){
-    $('#info-spread').show();
-    $('#btn-spread').css("background-color","rgb(0, 102, 255)");
-    $('#btn-spread').css("color","white");
-  });
-
-  $("#btn-dl").click(function(){
-    $('#info-dl').show();
-    $('#btn-dl').css("background-color","rgb(0, 102, 255)");
-    $('#btn-dl').css("color","white");
-  });
-  $("#btn-se").click(function(){
-    $('#info-se').show();
-    $('#btn-se').css("background-color","rgb(0, 102, 255)");
-    $('#btn-se').css("color","white");
-  });
-
-
-});
+} 
 </script>
 
 <div id ="book_wrapper">
   <div class = "bookmarks">
     
-    <h>Current Situation</h>
-    <!-- List alphabetically -->
-    <button id ="btn-dem">Demographics</button>
-    <button id ="btn-spread">Spread</button>
+    <h>General Info</h>
+    <button id ="btn-cra" onclick="toggleDisplay('cra')" style="background-color:rgb(0, 102, 255); color:white">Summary</button>
+    <button id ="btn-vib" onclick="toggleDisplay('vib')">Transmission</button>
+    <button id ="btn-clin" onclick="toggleDisplay('clin')">Clinical Features</button>
+    <button id ="btn-ther" onclick="toggleDisplay('ther')">Therapies</button>
+    <button id ="btn-comp" onclick="toggleDisplay('comp')">Complications</button>
+    <button id ="btn-diag" onclick="toggleDisplay('diag')">Lab Diagnosis</button>
     <p></p>
 
     <h> Symptoms </h>
     <!-- List alphabetically -->
-    <button id ="btn-dl">Dry Lips</button>
-    <button id ="btn-se">Sunken Eyes</button>
-    
+    <button id ="btn-com" onclick="toggleDisplay('com')">Common Symptoms</button>
+    <button id ="btn-dia" onclick="toggleDisplay('dia')">Watery diarrhea</button>
   </div>
   <div id ="book_content">
 
-    <!-- CURRENT SITUATION -->
-    <div id ='info-dem' style="display:none">
-      <div class ="h-book">Demographics</div>
-      <p>Some info about cholera demographcis would go here. </p>
-    </div>
-    <div id ='info-spread' style = "display:none">
-      <div class ="h-book">Spread</div>
-      <p>Some info about how cholera is spreading in Yemen would go here.</p>
+    <!-- Script for embeded citations-->
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> <!-- Use jQueryUI-->
+    <script>
+      function ref(num){
+        $(document).ready(function(){
+          $('#ref'+num).animate({backgroundColor: '#ffcc00'}, 'slow');
+          $('#ref'+num).animate({backgroundColor: 'none'}, 'slow');
+        });
+     } 
+    </script>
+
+    <!-- General Info -->
+
+    <div id ='info-cra'>
+      <div class ="h-book">Cholera Crashcourse</div>
+      <p><b>Key Facts:</b>
+        <ul>
+          <li>
+            Cholera is an intestinal infection caused by the bacterium <i>Vibrio cholerae</i>, with
+            the most common disease-causing strain being <i>Vibrio cholerae O1</i>. <a href ="#ref1" onclick="ref(1)">1</a>
+          </li>
+          <li>
+            Cholera can cause severe dehydration. Oral rehydration is the key to cholera treatment. Symptoms of dehydration include: 
+            <li style ="list-style-type: square; margin-left: 2em;">Watery diarrhea, sometimes called "rice-water stools"</li>
+            <li style ="list-style-type: square; margin-left: 2em;">Vomiting</li>
+            <li style ="list-style-type: square; margin-left: 2em;">Thirst</li>
+            <li style ="list-style-type: square; margin-left: 2em;">Leg Cramps</li>
+            <li style ="list-style-type: square; margin-left: 2em;">Restlesness or irritability</li>
+            <a href ="#ref1" onclick="ref(1)">Symptoms from [1]</a>
+          </li>
+          <li>
+            1 in 10 people with cholera will experience severe symptoms <a href ="#ref2" onclick="ref(2)">2</a>
+          </li>
+          <li>
+            Cholera spreads through contaminated drinking water. <a href ="#ref1" onclick="ref(1)">1</a>
+          </li>
+          <li>
+            Adding solutions like chlorine or cooling the water can lower your risk of getting cholera <a href ="#ref1" onclick="ref(1)">1</a>.
+            See the "Treatment" section for a full list of preventions and treatments. 
+          </li>
+          <li>
+            If you are caring for someone with cholera, you must wash your hands thoroughly after touching anything that might be in contact with the patients' feces <a href ="#ref1" onclick="ref(1)">1</a>. 
+            <p><img src="https://www.cdc.gov/cholera/images/washing-hands.jpg"></img></p>
+          </li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jG1VNSCsP5Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </ul>
+      </p>
     </div>
 
+    <div id ='info-vib' style="display:none">
+      <div class ="h-book">Transmission</div>
+      <p>
+        <ul>
+          <li><i>V. cholerae</i> is transmitted through contaminated food or water. The source of contamination is usually through the feces of cholera patients. <a href ="#ref1" onclick="ref(1)">1</a>
+            <p><img src ="/images/modern_transmission.png" width = 60%><p>Table from the CDC <a href ="#ref1" onclick="ref(1)">[1]</a>.</p></img></p>
+          </li>
+          <li>There is little evidence of direct person-to-person transmission. <a href ="#ref1" onclick="ref(1)">1</a>
+          </li>
+        </ul>
+
+      </p>
+    </div>
+
+    <div id ='info-clin' style = "display:none">
+      <div class ="h-book">Clinical Features</div>
+      <p>The signs and symptoms of cholera are caused by the cholera toxin produced by <i>V. cholerae</i>.</p>
+      
+      <p><b>Clinical features</b></p>
+      <ul>
+        <li>75% of cholera patients are asymptomatic</li>
+        <li>Of the patients that do show symptoms, they usually have a mild illness</li>
+        <li>Around ~2% of the infected will have severe cholera (or cholera gravis)</li>
+        <li>Symptoms of severe cholera:</li>
+          <li style ="list-style-type: square; margin-left: 2em;">Severe dehydration</li>
+          <li style ="list-style-type: square; margin-left: 2em;">Sunken eyes</li>
+          <li style ="list-style-type: square; margin-left: 2em;">Dry mouth and lips</li>
+          <li style ="list-style-type: square; margin-left: 2em;">Poor skin turgor</li>
+          <li style ="list-style-type: square; margin-left: 2em;">Decreased blood pressure</li>
+          <li style ="list-style-type: square; margin-left: 2em;">Poor or absent pulses</li>
+      </ul>
+    </div>
+
+    <div id ='info-ther' style = "display:none">
+      <div class ="h-book">Therapies</div>
+      <p><b>Rehydration Therapy</b></p>
+      <ul>
+        <li>Before the invention of rehydration therapy, 30-50% of patients with typical severe cholera died. 
+          Now, the mortality rate is less than 1%</li>
+        <li>80-90% of patients can be treated with an oral rehydration solution</li>
+      </ul>
+      <p><b>Antimicrobial Therapy</b></p>
+      <p>Antimicrobials can:</p>
+      <ul>
+        <li>Reduce fluid lost</li>
+        <li>Shorten the duration of diarrhea</li>
+        <li>Reduce the length of carriage of cholera in the feces</li>
+      </ul>
+      <p>Antibiotics are recommended for:</p>
+      <ul>
+        <li>Moderate to severe dehydrated patients</li>
+        <li>Patients who pass large volumes of stool while being on the rehydration treatment</li>
+        <li>All hospitalized patients</li>
+        <li><b>Asymptomatic patients should not receive antibiotics, to reduce the risk of antibiotic resistance</b></li>
+      </ul>
+    </div>
+
+    <div id ='info-comp' style = "display:none">
+      <div class ="h-book">Cholera Complications</div>
+      <ul>
+        <li>Hypoglycemia (low blood sugar): is common and <b>lethal</b> in children with cholera</li>
+        <li>Acute pulmonary edema: risk among elderly, young children, and anemic patients</li>
+        <li>Renal failure (anuria): rare and occurs when shock is not rapidly corrected. Hospitalized patients should be checked for urine output before discharge.</li>
+        <li>Hypokalemia: suspected in cases of repeated painful cramps</li>
+      </ul>
+    </div>
+
+      <div id ='info-diag' style = "display:none">
+        <div class ="h-book">Lab Diagnosis</div>
+        <ul>
+          <li>Coming soon... maybe?</li>
+        </ul>
+      </div>
+
+    <div>
+
     <!-- SYMPTOMS -->
-    <div id ='info-dl' style="display:none">
-      <div class ="h-book">Dry Lips</div>
-      <p>An image of dry lips and some description would go here.</p>
+    <div id ='info-com' style="display:none">
+      <div class ="h-book">Common Symptoms</div>
+      <a href ="https://www.slideshare.net/zakkuefuronfrogie/infectious-diseases-34076767" target="_blank"><img src ="/images/common-symp-slideshare.png" width = 100%></img></p></a>
+      <p>Image from <a href ="#ref4" onclick="ref(4)">[4]</a>
+    </div>
+    <div id ='info-se' style = "display:none">
+      <div class ="h-book">Sunken Eyes</div>
+      <p>An image of sunken eyes and some description would go here.</p>
+    </div>
+    <div id ='info-dia' style="display:none">
+      <div class ="h-book">Watery diarrhea or "Rice Water Stool"</div>
+      <p>
+        <img src="https://www.researchgate.net/profile/Ana_Weil/publication/51898494/figure/fig1/AS:484201817481216@1492454117646/Rice-water-stool-produced-by-a-cholera-patient.png" width = 50%>
+        <p>Image from <a href ="#ref3" onclick="ref(3)">[3]</a> </p>
+        </img>
+      </p>
     </div>
     <div id ='info-se' style = "display:none">
       <div class ="h-book">Sunken Eyes</div>
@@ -273,16 +334,29 @@ $(document).ready(function(){
     </div>
 
 
+
+    <!-- References-->
+    <p><b>References</b></p>
+    <ol>
+      <li id = "ref1">Haiti Cholera Training Manual: A Full Course for Healthcare Providers. (2011). Retrieved from https://www.cdc.gov/cholera/pdf/haiticholera_trainingmanual_en.pdf</li>
+      <li id = "ref2">Illness and Symptoms. (2020, October 02). Retrieved December 13, 2020, from https://www.cdc.gov/cholera/illness.html</li>
+      <li id = "ref3">Cholera: Lessons from Haiti and Beyond. <i>Current Infectious Disease Reports.</i> (2011). DOI: 10.1007/s11908-011-0221-9</li>
+      <li id = "ref4">CHAPTER 13: Infectious Disease (CHOLERA) (2014). Retrieved from https://www.slideshare.net/zakkuefuronfrogie/infectious-diseases-34076767</li>
+    </ol>
+    </div>
+
   </div>
 
 </div>
+</div>
 
 </div>
+
+</body>
 
 <div id="big-foot">
-  <div id="content">
-    <p>Made for the <i>New York Academy of Sciences</i> Telemedicine Challenge. View the <a href ="https://github.com/triplet-telehealth/triplet-telehealth.github.io" target="_blank" rel="noopener noreferrer">source code</a>.</p>
-  </div>  
+  <div id="google_translate_element" style ="float:left; margin-left: 1%"></div> 
+  <p style = "float:right;margin-right: 10px">View the <a href ="https://github.com/triplet-telehealth/triplet-telehealth.github.io" target="_blank" rel="noopener noreferrer" style="color:white">source code</a>. </p>
 </div>
-</body>
+
 </html>
