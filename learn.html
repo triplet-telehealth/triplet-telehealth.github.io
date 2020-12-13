@@ -13,7 +13,6 @@
 /* General Fonts and Theme */
   html{
     font-family: 'Open Sans', Helvetica, sans-serif;
-    height: 100%;
   }
   
   a {
@@ -23,7 +22,6 @@
   body {
     margin: 0;
     padding-bottom: 100px;
-    height: 100%;
   }
   
   h1{
@@ -178,19 +176,12 @@ function toggleDisplay(btnid) {
     <button id ="btn-ther" onclick="toggleDisplay('ther')">Therapies</button>
     <button id ="btn-comp" onclick="toggleDisplay('comp')">Complications</button>
     <button id ="btn-diag" onclick="toggleDisplay('diag')">Lab Diagnosis</button>
-
-    <h>Current Situation</h>
-    <!-- List alphabetically -->
-    <button id ="btn-dem" onclick="toggleDisplay('dem')">Demographics</button>
-    <button id ="btn-spread" onclick="toggleDisplay('spread')">Spread</button>
+    <p></p>
 
     <h> Symptoms </h>
     <!-- List alphabetically -->
     <button id ="btn-com" onclick="toggleDisplay('com')">Common Symptoms</button>
     <button id ="btn-dia" onclick="toggleDisplay('dia')">Watery diarrhea</button>
-    <button id ="btn-dl" onclick="toggleDisplay('dl')">Dry Lips</button>
-    <button id ="btn-se" onclick="toggleDisplay('se')">Sunken Eyes</button>
-
   </div>
   <div id ="book_content">
 
@@ -341,6 +332,8 @@ function toggleDisplay(btnid) {
       <div class ="h-book">Sunken Eyes</div>
       <p>An image of sunken eyes and some description would go here.</p>
     </div>
+
+
 
     <!-- References-->
     <p><b>References</b></p>
