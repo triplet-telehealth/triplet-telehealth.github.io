@@ -8,14 +8,17 @@ The technology team oversaw the development and implementation of the online pla
 
 ### Technology Team
 Alex C (takes responsibility for any code mishaps)
+
 Vaishnavi M 
 
 ### Treatment Team
 Laboni S
+
 Patrick N
 
 ### Education Team
 Thanasis C
+
 Kalkidan K
 
 ## Licensing
