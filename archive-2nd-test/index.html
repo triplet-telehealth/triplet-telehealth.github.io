@@ -160,6 +160,64 @@ Top navigation bar modified from code by W3 schools (https://www.w3schools.com/h
   </script>
   <!-- End Inspectlet Asynchronous Code -->
 
+<!-- Code for popup (testing purposes)-->
+<!-- 
+     See MIT License in /LICENSE-MIT-POPUP_MODAL.txt.
+     Modified from Copyright (c) 2012 Chris Cook
+-->
+<script language = "javascript" type="text/javascript" src="random_gen.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="jquery.firstVisitPopup.js"></script>
+<div id="my-welcome-message">
+  <h2>Thanks for agreeing to test our site! Here's what we need.</h2>
+  <p>This site is made for community medical assistants (CMAs) and members of the public living in Yemen. However,
+    we don't know anyone in Yemen. That's where you come in. <b> We want you to do some roleplaying.</b>
+  </p>
+  <h1>Prompt:</h1>
+  <p id="loading">LOADING PROMPT...</p>
+
+  <div id ="case1" style ="display:none">
+    <p> You are a community medical assistant in the governorate of Dhamar. Login to your dashboard and address any messages from patients. You may have to report the case and come up with a treatment regime based on the information on our site.</p>
+      <p>Your password is "<b>totallylegitcma</b>". Please write it down somewhere, as you will not be able to see this again once you close the popup.</p>
+  </div>
+
+  <div id ="case2" style ="display:none">
+    <p> You are a community medical assistant in the governorate of Dhamar. Login to your dashboard and address any messages from patients. You may have to report the case and come up with a treatment regime based on the information on our site.</p>
+      <p>Your password is "<b>totallylegitcma</b>". Please write it down somewhere, as you will not be able to see this again once you close the popup.</p>
+  </div>
+
+  <!--
+  <div id="case2" style ="display: none">
+    <p>
+      You are a citizen in Yemen and think you may have cholera.
+      <p>
+      You have <b>abdominal cramps, a dry mouth, nausea</b> and have been <b>more thirsty than usual</b>. 
+      You live in <b>Abyan</b>.  
+    </p>
+    <p>Navigate through the site and contact a health professional for your symptoms. Please write your symptoms down somewhere as you will not be able to see this popup again once you close it.</p> 
+  </div>
+   -->
+  <p>
+  After you complete the task, you will be asked to fill out a survey asking about your experience. This will help us design the website better.
+  <b>If you are using adblock, please disable it. While we do not host ads, adblock interferes with the technology we are using to research
+    user experience. We will never intentionally collect or publish private info.
+  </b> By using the site, you consent to the use of cookies and session recording technology.
+  </p>
+  </div>
+ 
+
+<script>
+  $(function () {
+    $('#my-welcome-message').firstVisitPopup({
+      cookieName : 'homepage',
+      showAgainSelector: '#show-message'
+    });
+  });
+</script>
+
+<!-- CODE FOR TESTING ENDS-->
+
+
 <body>
 <!-- Navigation Bar -->
 <!-- Modified from a W3 Schools tutorial-->

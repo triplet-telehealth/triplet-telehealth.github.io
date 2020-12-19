@@ -168,7 +168,8 @@ function toggleDisplay(btnid) {
 
 <div id ="book_wrapper">
   <div class = "bookmarks">
-    
+  
+
     <h>General Info</h>
     <button id ="btn-cra" onclick="toggleDisplay('cra')" style="background-color:rgb(0, 102, 255); color:white">Summary</button>
     <button id ="btn-vib" onclick="toggleDisplay('vib')">Transmission</button>
@@ -182,8 +183,19 @@ function toggleDisplay(btnid) {
     <!-- List alphabetically -->
     <button id ="btn-com" onclick="toggleDisplay('com')">Common Symptoms</button>
     <button id ="btn-dia" onclick="toggleDisplay('dia')">Watery diarrhea</button>
+    <p></p>
+
+    <h> Water Treatment </h>
+    <!-- List alphabetically -->
+    <button id ="btn-slow" onclick="toggleDisplay('slow')">Slow Sand Filter</button>
+    <button id ="btn-dist" onclick="toggleDisplay('dist')">Solar Distillation</button>
   </div>
+
   <div id ="book_content">
+
+    <!-- 
+      In the future, the content will be served over AJAX so it does not need to load all at once.
+    -->
 
     <!-- Script for embeded citations-->
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> <!-- Use jQueryUI-->
@@ -212,7 +224,7 @@ function toggleDisplay(btnid) {
             <li style ="list-style-type: square; margin-left: 2em;">Vomiting</li>
             <li style ="list-style-type: square; margin-left: 2em;">Thirst</li>
             <li style ="list-style-type: square; margin-left: 2em;">Leg Cramps</li>
-            <li style ="list-style-type: square; margin-left: 2em;">Restlesness or irritability</li>
+            <li style ="list-style-type: square; margin-left: 2em;">Restlessness or irritability</li>
             <a href ="#ref1" onclick="ref(1)">Symptoms from [1]</a>
           </li>
           <li>
@@ -223,7 +235,7 @@ function toggleDisplay(btnid) {
           </li>
           <li>
             Adding solutions like chlorine or cooling the water can lower your risk of getting cholera <a href ="#ref1" onclick="ref(1)">1</a>.
-            See the "Treatment" section for a full list of preventions and treatments. 
+            See the "Water Treatment" section for a full list of preventions and treatments. 
           </li>
           <li>
             If you are caring for someone with cholera, you must wash your hands thoroughly after touching anything that might be in contact with the patients' feces <a href ="#ref1" onclick="ref(1)">1</a>. 
@@ -272,13 +284,13 @@ function toggleDisplay(btnid) {
       <p><b>Rehydration Therapy</b></p>
       <ul>
         <li>Before the invention of rehydration therapy, 30-50% of patients with typical severe cholera died. 
-          Now, the mortality rate is less than 1%</li>
+          Now, the mortality rate is less than 1%.</li>
         <li>80-90% of patients can be treated with an oral rehydration solution</li>
       </ul>
       <p><b>Antimicrobial Therapy</b></p>
       <p>Antimicrobials can:</p>
       <ul>
-        <li>Reduce fluid lost</li>
+        <li>Reduce fluid loss</li>
         <li>Shorten the duration of diarrhea</li>
         <li>Reduce the length of carriage of cholera in the feces</li>
       </ul>
@@ -303,8 +315,14 @@ function toggleDisplay(btnid) {
 
       <div id ='info-diag' style = "display:none">
         <div class ="h-book">Lab Diagnosis</div>
+        <p>If available, suspected cholera patients should be tested by stool culture. For rural areas, the <a href ="https://www.cdc.gov/cholera/crystal-vc.html" style =" vertical-align:middle;">Crystal® VC Rapid Diagnostic Test (RDT) Procedure</a> is recommended.</p>
+        <p>The WHO organization recommends rural areas use the following definition for cholera cases: <a href ="#ref2" onclick="ref(2)">2</a></p>
         <ul>
-          <li>Coming soon... maybe?</li>
+          <li>Suspected Cholera Case</li>
+          <li style ="list-style-type: square; margin-left: 2em;">If a cholera outbreak has not been declared, any patient 2 years or older with watery diarrhea and severe dehydration, or is dying from watery diarrhea, is a suspected cholera case.</li>
+            <li style ="list-style-type: square; margin-left: 2em;">In areas with a declared cholera outbreak, any person presenting with or dying from watery diarrhea is a suspected cholera case.</li>
+          <li>Confirmed Cholera Case</li>
+          <li style ="list-style-type: square; margin-left: 2em;"><i>Vibrio cholerase O1</i> confirmed by stool culture or PCR, or if the strain is confirmed to be toxigenic</li>
         </ul>
       </div>
 
@@ -333,7 +351,33 @@ function toggleDisplay(btnid) {
       <p>An image of sunken eyes and some description would go here.</p>
     </div>
 
+<!-- Water Treatment -->
+  <div id ='info-slow' style = "display:none">
+    <div class ="h-book">Slow Sand Filter</div>
+    <p>Slow sand filters can be used to decontaminate groundwater. You should use them
+      if your governorate is near aquifers. They work by sifting the water through sand a natural biofilm</p>
+    <p>Quick facts:</p>
+    <ul>
+      <li>You can produce ~30L of fresh water a day</li>
+      <li>Uses sand, a readily available resource</li>
+      <li>After 4-6 months, the biofilm may thicken and lower the output of clean water. To maintain an effective flow rate, the top 5 centimeters must be replaced with clean or washed sand.</li>
+    </ul>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fBKlXDx6txo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p><img src ="/images/slowsand.png" width = "30%"></img></p>
+  </div>
 
+  <div id ='info-dist' style = "display:none">
+    <div class ="h-book">Solar Distillation</div>
+    <p>Solar distillation can be used for governorates near the sea.</p>
+    <p>Quick facts:</p>
+    <ul>
+      <li>While black-bottomed vessels from high density polyethylene (HDPE) are common, copper vessels are more effective for antimicrobial treatment</li>
+      <li style ="list-style-type: square; margin-left: 2em;">Copper is widely available in Yemen</li>
+      <li style ="list-style-type: square; margin-left: 2em;">Copper quickly absorbs the sun's energy (a specific heat of 0.385J/gºC, compared to HDPE with 1.9J/gºC</li>
+      <li>You can produde more than 6L of clean water in a day</li>
+      <p><img src ="/images/distillation.png" width = 30%></img></p>
+    </ul>
+  </div>
 
     <!-- References-->
     <p><b>References</b></p>

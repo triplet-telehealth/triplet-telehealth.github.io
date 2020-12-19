@@ -13,42 +13,28 @@
 
 Triplet Telehealth
 
-Tech team:
-Alex C (website design & coding)
-Vaisnavi M (helped w/ final google slides presentation, attended WaSH meeting w/ WHO and Unicef)
+Website design/code:
+Alex C (HTML/JS/CSS + content/text)
+Vaisnavi M (content/text)
 
-Treatment Team:
-Laboni S
-Patrick N
-
-Education Team:
-Thanasis C
-Kalkidan K
+Other members of the team (in different divisions, not responsible for tech):
+Laboni, Thanasis, Patrick, Kalkidan
 
 ====
+Special thanks to the W3 schools website for all of its tutorials. 
 Licenses for pieces of code are attributed where relevant.
-
-Top navigation bar modified from code by W3 schools (https://www.w3schools.com/howto/howto_js_topnav_responsive.asp, under "fair use" as described by their terms.
-
 -->
 <head>
 <title>TripleT Telehealth</title>
 <meta name = "description" content ="TripleT Telehealth is a Junior Academy project for the New York Academy of Sciences.">
 <!-- Load external icons and fonts -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="nav-bar.css">
 <link rel="https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFW50bf8pkAp6a.woff2",rel="stylesheet">
-<script type="text/javascript" src="translate.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
 /* General Fonts and Theme */
   html{
     font-family: 'Open Sans', Helvetica, sans-serif;
-  }
-
-  a {
-    color: white;
   }
 
 /* Special formatting for report button */
@@ -63,7 +49,6 @@ Top navigation bar modified from code by W3 schools (https://www.w3schools.com/h
 
   body {
     margin: 0;
-    padding-bottom: 100px;
   }
   
   h1{
@@ -77,18 +62,18 @@ Top navigation bar modified from code by W3 schools (https://www.w3schools.com/h
     width: 100%;
     left: 0;
     right: 0;
+    height: 110px;
     overflow: hidden;
     background-size: 100%;
   }
 
   #big-foot{
-    margin-top: 100px;
     background-color:grey;
     width:100%;
     overflow: hidden;
+    width:100%;
+    margin-top: 10px;
     color: white;
-    position: fixed;
-    bottom: 0;
   }
 
   #content{
@@ -101,11 +86,73 @@ Top navigation bar modified from code by W3 schools (https://www.w3schools.com/h
   }
 
   #report_info a {
-    color: black;
-    text-decoration: underline;
-    text-align:center;
+    background-color:rgb(10, 103, 243);
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    display:block;
+    text-align:center
+
   }
 
+/* Add a black background color to the top navigation */
+  .topnav {
+    background-color: #333;
+    overflow: hidden;
+  }
+
+
+/* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+/* Change the color of links on hover */
+  .topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  }
+
+/* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-color: rgb(10, 103, 243);
+    color: white;
+  }
+
+/* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display:block;
+      text-align: left;
+    }
+  }
 
 /* CSS for popup (testing purposes)*/
 
@@ -169,7 +216,7 @@ Top navigation bar modified from code by W3 schools (https://www.w3schools.com/h
     <a href="/index.html" class="active">Tracing</a>
     <a href="/communicate.html">Communicate</a>
     <a href="/learn.html">Learn</a>
-    <a href="/profile-protected.html">Login</a>
+    <a href="/logistics.html">Logistics</a>
     <a href="javascript:void(0);" class="icon" onclick="navExpand()">
       <i class="fa fa-bars"></i>
     </a>
@@ -191,7 +238,8 @@ Top navigation bar modified from code by W3 schools (https://www.w3schools.com/h
 
 <div id ="page_banner">
   <div id="content">
-    <h1>Cholera Case Map</h1>
+    <h1> Cholera Case Map </h1>
+    <a href ="#report_info" class ="report">Report a Case</a>
   </div>
 </div> <!-- div ends to make way for tracing map-->
 
@@ -208,15 +256,70 @@ Top navigation bar modified from code by W3 schools (https://www.w3schools.com/h
 <!--overview map iframe ends-->
 
 <div id="report_info"> <!-- Content begins again -->
-<h1>How to use the site</h1>
-<p>This site is designed for both members of the public and healthcare workers. If you want to learn about cholera, visit the <a href ="/learn.html">Learn</a> page. If you are a citizen and think that you may have cholera, contact a health professional on the <a href ="/communicate.html">Communicate</a> page. If you are a health professional and want to report a case or address questions in your governorate, please <a href ="profile-protected.html">Login</a>.</p>
+<h1> Diagnose and Report a Case</h1>
+<p>You will be asked to complete a form detailing your observations of the patient's symptoms. 
+  Afterwords, your case report will automatically be added into the database and map.</p>
+<a href="/report.html">Continue to Form</a>
 </div>
-
-</body>
 
 <div id="big-foot">
-    <div id="google_translate_element" style ="float:left;margin-left:1%"></div> 
-    <p style = "float:right;margin-right: 10px;">View the <a href ="https://github.com/triplet-telehealth/triplet-telehealth.github.io" target="_blank" rel="noopener noreferrer" style="color:white">source code</a>. </p>
+  <div id="content">
+    <p>Made for the <i>New York Academy of Sciences</i> Telemedicine Challenge.</p>
+  </div>  
 </div>
-</html>
 
+<!-- Code for popup (testing purposes)-->
+<!-- 
+     See MIT License in /LICENSE-MIT-POPUP_MODAL.txt.
+     Modified from Copyright (c) 2012 Chris Cook
+-->
+<script language = "javascript" type="text/javascript" src="random_gen.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="jquery.firstVisitPopup.js"></script>
+<div id="my-welcome-message">
+  <h2>Thanks for agreeing to test our site! Here's what we need.</h2>
+  <p>This site is made for community medical assistants (CMAs) in Yemen. However,
+    we don't know any CMAs. That's where you come in. <b> We want you to do some roleplaying.</b>
+  </p>
+  <h1>Prompt:</h1>
+  <p>
+    You are a medical community assistant in Yemen. 
+    A sick patient, potentially with <b>cholera</b>, calls you. Navigate the site and report their symptoms and submit their case to the contact tracing database. 
+    The patient information is listed below.
+     <b> Please write the symptoms down somewhere. After you close this popup, you will not be able to see it again. </b>
+  </p>
+  <div id ="case1" style ="display:none">
+    <p>
+      Your patient is a 35 year old male with symptoms of <b>vomiting and diarrhea</b>.</p>
+      <p>
+      He is <b>not thirsty and is peeing normally</b>.
+      He lives in <b>Sana'a</b>.
+    </p>
+  </div>
+  <div id="case2" style ="display: none">
+    <p>
+      Your patient is a 40 year old female with symptoms of <b>leg cramps, sunken eyes, and dry lips</b>. </p>
+      <p>
+      She reports feeling <b>restless</b> and <b>being more thirsty than usual</b>. 
+      She lives in <b>Abyan</b>.  
+    </p>
+  </div>
+  <p>
+  After you report the cholera case, you'll be asked to fill out a survey asking about your experience. This will help us design the website better.
+  <b>If you are using adblock, please disable it. While we do not host ads, adblock interferes with the technology we are using to research
+    user experience. We will never intentionally collect or publish private info.
+  </b> By using the site, you consent to the use of cookies and session recording technology.
+  </p>
+</div>
+
+<script>
+  $(function () {
+    $('#my-welcome-message').firstVisitPopup({
+      cookieName : 'homepage',
+      showAgainSelector: '#show-message'
+    });
+  });
+</script>
+
+</body>
+</html>
